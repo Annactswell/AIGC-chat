@@ -90,8 +90,8 @@ body {
 
 
 .avatar {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     object-fit: cover;
     margin: 5px;
@@ -121,12 +121,14 @@ body {
     flex-direction: row-reverse;
     /* background: linear-gradient(to right, rgba(208, 209, 210, 0.7), rgba(148, 150, 150, 0.7)); */
     justify-content: flex-start;  
+    background-color: rgba(0, 0, 0, 0.05);
     margin-left: auto;
 }
 
 .robot-message {
     flex-direction: row; 
     /* background: linear-gradient(to right, rgba(245, 245, 245, 0.7), rgba(225, 225, 225, 0.7)); */
+    background-color: rgba(0, 0, 0, 0.1);
     justify-content: flex-start;  
 }
 

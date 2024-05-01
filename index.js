@@ -11,7 +11,7 @@ toggleChat.onclick = function() {
 function sendMessage() {
     var message = input.value.trim();
     if (message) {
-        displayMessage(message, 'own-message');
+        displayMessage(message, 'own-message', message);
         input.value = '';
         messagesDiv.scrollTop = messagesDiv.scrollHeight; // 滚动到最新消息
         setTimeout(getRobotResponse, 1000); // 模拟机器人思考后回复
@@ -48,20 +48,23 @@ function displayMessage(message, className, isOwnMessage) {
     messageElement.classList.add('message', className);
     
     var imgElement = document.createElement('img');
-    imgElement.src = isOwnMessage ? '1.jpg' : '2.jpg'; // 替换为实际头像路径
+    imgElement.src = isOwnMessage ? 'user-head.png' : 'robot-head.png'; // 替换为实际头像路径
     imgElement.classList.add('avatar');
 
     var textElement = document.createElement('div');
     textElement.textContent = message;
     textElement.classList.add('text');
 
-    if (isOwnMessage) {
-        messageElement.appendChild(textElement); // 先添加文本
-        messageElement.appendChild(imgElement); // 然后添加头像
-    } else {
-        messageElement.appendChild(imgElement); // 先添加头像
-        messageElement.appendChild(textElement); // 然后添加文本
-    }
+    // if (isOwnMessage) {
+    //     messageElement.appendChild(textElement); // 先添加文本
+    //     messageElement.appendChild(imgElement); // 然后添加头像  
+    // } else {
+    //     messageElement.appendChild(imgElement); // 先添加头像
+    //     messageElement.appendChild(textElement); // 然后添加文本
+    // }
+
+    messageElement.appendChild(imgElement);
+    messageElement.appendChild(textElement);
 
     messagesDiv.appendChild(messageElement);
     messagesDiv.scrollTop = messagesDiv.scrollHeight; // 滚动到最新消息
